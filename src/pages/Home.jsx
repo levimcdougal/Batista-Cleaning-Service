@@ -27,7 +27,7 @@ const difference = [
 export default function HomePage() {
   return (
     <main className="page-wrapper home-new">
-      <section className="hero hero-new">
+      <section className="hero hero-new" style={{ backgroundImage: `url(${heroBg})` }}>
         <img
           className="hero-background"
           src={heroBg}
