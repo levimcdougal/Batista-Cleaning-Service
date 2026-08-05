@@ -858,6 +858,17 @@ html { scroll-behavior: smooth; scroll-padding-top: 78px; }
 
 @media (max-width: 768px) {
   .hero-background { object-position:58% center; }
+  .hero-new::before {
+    z-index:1;
+    background:linear-gradient(180deg, rgba(10,20,25,.82), rgba(10,20,25,.88));
+  }
+  .hero-new .hero-inner,
+  .hero-new .hero-trust { z-index:2; }
+  .hero-new h1,
+  .hero-new p:not(.hero-areas) {
+    text-shadow:0 2px 12px rgba(0,0,0,.72);
+  }
+  .hero-new h1 em { color:#ffad73; }
   .platform-strip {
     justify-content:center;
     gap:12px;
