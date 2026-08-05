@@ -12,10 +12,10 @@ import deepImg from '../assets/de-optimized.jpg'
 import moveImg from '../assets/move-optimized.jpg'
 
 const coreServices = [
-  { image: residentialImg, title: 'Residential Cleaning', text: 'Recurring, reliable home cleaning shaped around your schedule.' },
-  { image: deepImg, title: 'Deep Cleaning', text: 'A detailed reset for first visits, seasonal refreshes, and special occasions.' },
-  { image: moveImg, title: 'Move In / Move Out', text: 'A complete clean that lets you move forward without the mess.' },
-  { image: rentalImg, title: 'Vacation Rental Turnovers', text: 'Fast, hotel-quality resets that keep every stay guest-ready.' },
+  { image: residentialImg, width: 1000, height: 666, title: 'Residential Cleaning', text: 'Recurring, reliable home cleaning shaped around your schedule.' },
+  { image: deepImg, width: 1000, height: 750, title: 'Deep Cleaning', text: 'A detailed reset for first visits, seasonal refreshes, and special occasions.' },
+  { image: moveImg, width: 1000, height: 666, title: 'Move In / Move Out', text: 'A complete clean that lets you move forward without the mess.' },
+  { image: rentalImg, width: 1000, height: 750, title: 'Vacation Rental Turnovers', text: 'Fast, hotel-quality resets that keep every stay guest-ready.' },
 ]
 
 const difference = [
@@ -27,7 +27,16 @@ const difference = [
 export default function HomePage() {
   return (
     <main className="page-wrapper home-new">
-      <section className="hero hero-new" style={{ backgroundImage: `url(${heroBg})` }}>
+      <section className="hero hero-new">
+        <img
+          className="hero-background"
+          src={heroBg}
+          alt=""
+          width="1400"
+          height="933"
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="hero-inner hero-new-inner">
           <div className="hero-eyebrow"><Star size={15} fill="currentColor" /> Arizona&apos;s 5-star cleaning team</div>
           <h1>More time for life.<br /><em>Less time cleaning.</em></h1>
@@ -59,7 +68,14 @@ export default function HomePage() {
             <Link to="/contact" className="text-link">Meet your local cleaning team <ArrowRight size={16} /></Link>
           </div></FadeIn>
           <FadeIn delay={120}><div className="about-image-card">
-            <img src={aboutImg} alt="A bright, professionally cleaned home" />
+            <img
+              src={aboutImg}
+              alt="A bright, professionally cleaned home"
+              loading="lazy"
+              decoding="async"
+              width="1100"
+              height="733"
+            />
             <div className="about-stamp"><strong>Since</strong><span>1981</span><small>Arizona</small></div>
           </div></FadeIn>
         </div>
@@ -74,7 +90,14 @@ export default function HomePage() {
           <div className="service-editorial-grid">
             {coreServices.map((service, index) => (
               <FadeIn delay={index * 75} key={service.title}><article className="service-editorial-card">
-                <img src={service.image} alt="" />
+                <img
+                  src={service.image}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  width={service.width}
+                  height={service.height}
+                />
                 <div className="service-editorial-content"><span>0{index + 1}</span><h3>{service.title}</h3><p>{service.text}</p><Link to="/services" aria-label={`Learn more about ${service.title}`}><ArrowRight size={18} /></Link></div>
               </article></FadeIn>
             ))}
